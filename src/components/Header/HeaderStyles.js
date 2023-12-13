@@ -1,6 +1,7 @@
 import { IoIosArrowDropdown } from 'react-icons/io';
 import styled from 'styled-components';
 
+
 export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -8,6 +9,12 @@ export const Container = styled.div`
   grid-column-gap: 2rem;
   padding: 1rem;
   padding-top: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; // High z-index to ensure it's above other elements
+  background-color: rgba(0, 0, 0, 0.8);
 
   @media ${(props) => props.theme.breakpoints.sm} {
     display: grid;
@@ -18,7 +25,8 @@ export const Container = styled.div`
   }
 `;
 
-export const Span= styled.span`
+
+export const Span = styled.span`
 font-size: 2rem;
 `;
 
