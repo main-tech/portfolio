@@ -10,6 +10,7 @@ import { DiNginx } from 'react-icons/di';
 import { SiTraefikproxy } from 'react-icons/si';
 import { SiMicrosoftazure } from 'react-icons/si';
 import { SiKubernetes } from 'react-icons/si';
+import { TbBrandNextjs } from "react-icons/tb";
 const Technologies = () => (
   <Section id="tech">
     <SectionDivider />
@@ -38,6 +39,14 @@ const Technologies = () => (
       </ListContainer>
 
 
+      {/* Next.js */}
+      <ListContainer>
+        <TbBrandNextjs size="3rem" />
+        <ListTitle>Next.js</ListTitle>
+        <ListParagraph>
+          <p>Advancing Web Development with Next.js</p>
+        </ListParagraph>
+      </ListContainer>
       {/* Docker */}
       <ListContainer>
         <DiDocker size="3rem" />
