@@ -13,7 +13,7 @@ const Hero = (props) => (
     <LeftSection>
       <SectionTitle main center>
         Welcome To <br />
-        Mitau's Portfolio
+        Mandela's Portfolio
       </SectionTitle>
       <SectionText>Expert in Cloud, Development & DevOps
       </SectionText>
