@@ -7,7 +7,7 @@ const Hero = () => (
   <Section row nopadding>
     <LeftSection>
       <SectionTitle main center>
-        Mandela Mitau <br />
+        Mandela Muithi <br />
         Site Reliability & DevOps Engineer
       </SectionTitle>
       <SectionText>

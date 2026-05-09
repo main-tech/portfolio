@@ -14,7 +14,7 @@ export const Eyebrow = styled.div`
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: ${(props) => props.theme.colors.textSubtle};
   margin-bottom: 12px;
 `;
 
@@ -22,9 +22,10 @@ export const Title = styled.h1`
   font-weight: 800;
   font-size: 48px;
   line-height: 1.15;
-  background: linear-gradient(121.57deg, #ffffff 18.77%, rgba(255, 255, 255, 0.66) 60.15%);
+  background: ${(props) => props.theme.colors.titleGradient};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 8px;
 
   @media ${(props) => props.theme.breakpoints.sm} {
@@ -33,7 +34,7 @@ export const Title = styled.h1`
 `;
 
 export const Meta = styled.div`
-  color: rgba(255, 255, 255, 0.65);
+  color: ${(props) => props.theme.colors.textMuted};
   font-size: 16px;
   margin-bottom: 32px;
 `;
@@ -42,7 +43,7 @@ export const SectionH2 = styled.h2`
   font-weight: 700;
   font-size: 28px;
   line-height: 1.3;
-  color: #fff;
+  color: ${(props) => props.theme.colors.bodyText};
   margin: 40px 0 12px;
 
   @media ${(props) => props.theme.breakpoints.sm} {
@@ -54,7 +55,7 @@ export const SectionH2 = styled.h2`
 export const Body = styled.p`
   font-size: 17px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8);
+  color: ${(props) => props.theme.colors.textMuted};
   margin-bottom: 12px;
 
   @media ${(props) => props.theme.breakpoints.sm} {
@@ -71,7 +72,7 @@ export const Bullets = styled.ul`
 export const Bullet = styled.li`
   font-size: 16px;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.8);
+  color: ${(props) => props.theme.colors.textMuted};
   padding-left: 24px;
   position: relative;
   margin-bottom: 8px;
@@ -102,9 +103,9 @@ export const Pills = styled.div`
 export const Pill = styled.span`
   font-size: 13px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: ${(props) => props.theme.colors.pillText};
+  background: ${(props) => props.theme.colors.pillBg};
+  border: 1px solid ${(props) => props.theme.colors.pillBorder};
   padding: 6px 12px;
   border-radius: 999px;
 `;
@@ -119,29 +120,29 @@ export const LinkRow = styled.div`
 export const ExternalLink = styled.a`
   font-size: 14px;
   font-weight: 600;
-  color: #9cc9e3;
+  color: ${(props) => props.theme.colors.linkAccent};
   text-decoration: none;
   padding: 8px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(156, 201, 227, 0.35);
+  border: 1px solid ${(props) => props.theme.colors.linkAccentBorder};
   transition: 0.2s ease;
 
   &:hover {
-    color: #fff;
-    border-color: #fff;
-    background: rgba(255, 255, 255, 0.04);
+    color: ${(props) => props.theme.colors.bodyText};
+    border-color: ${(props) => props.theme.colors.bodyText};
+    background: ${(props) => props.theme.colors.iconHoverBg};
   }
 `;
 
 export const BackLink = styled.a`
   display: inline-block;
   margin-bottom: 32px;
-  color: rgba(255, 255, 255, 0.6);
+  color: ${(props) => props.theme.colors.textSubtle};
   font-size: 14px;
   text-decoration: none;
   transition: 0.2s ease;
 
   &:hover {
-    color: #fff;
+    color: ${(props) => props.theme.colors.bodyText};
   }
 `;

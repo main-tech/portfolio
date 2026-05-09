@@ -19,8 +19,8 @@ export const Grid = styled.div`
 `;
 
 export const Card = styled.div`
-  background: rgba(71, 74, 87, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: ${(props) => props.theme.colors.cardBgSoft};
+  border: 1px solid ${(props) => props.theme.colors.cardBorder};
   border-radius: 12px;
   padding: 24px;
 
@@ -33,7 +33,7 @@ export const CardTitle = styled.h4`
   font-weight: 700;
   font-size: 22px;
   line-height: 28px;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.cardText};
   margin-bottom: 8px;
 
   @media ${(props) => props.theme.breakpoints.sm} {
@@ -45,7 +45,7 @@ export const CardTitle = styled.h4`
 export const CardBody = styled.p`
   font-size: 16px;
   line-height: 26px;
-  color: rgba(255, 255, 255, 0.75);
+  color: ${(props) => props.theme.colors.cardTextMuted};
 
   @media ${(props) => props.theme.breakpoints.sm} {
     font-size: 14px;

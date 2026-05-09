@@ -8,7 +8,8 @@ export const ExpList = styled.div`
 `;
 
 export const ExpCard = styled.article`
-  background: #474a57;
+  background: ${(props) => props.theme.colors.cardBg};
+  border: 1px solid ${(props) => props.theme.colors.cardBorder};
   border-radius: 12px;
   padding: 24px 28px;
   display: flex;
@@ -32,7 +33,7 @@ export const ExpRole = styled.h4`
   font-weight: 700;
   font-size: 22px;
   line-height: 28px;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.cardText};
 
   @media ${(props) => props.theme.breakpoints.sm} {
     font-size: 18px;
@@ -43,25 +44,25 @@ export const ExpRole = styled.h4`
 export const ExpDates = styled.span`
   font-size: 14px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
+  color: ${(props) => props.theme.colors.cardTextMuted};
   letter-spacing: 0.02em;
 `;
 
 export const ExpCompany = styled.div`
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.85);
+  color: ${(props) => props.theme.colors.cardText};
 `;
 
 export const ExpLocation = styled.span`
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.55);
+  color: ${(props) => props.theme.colors.cardTextSubtle};
   margin-left: 8px;
 `;
 
 export const ExpSummary = styled.p`
   font-size: 15px;
   line-height: 24px;
-  color: rgba(255, 255, 255, 0.75);
+  color: ${(props) => props.theme.colors.cardTextMuted};
   margin-top: 4px;
 
   @media ${(props) => props.theme.breakpoints.sm} {
@@ -81,15 +82,15 @@ export const ExpLinks = styled.div`
 export const ExpLink = styled.a`
   font-size: 14px;
   font-weight: 600;
-  color: #9cc9e3;
+  color: ${(props) => props.theme.colors.linkAccent};
   text-decoration: none;
-  border-bottom: 1px solid rgba(156, 201, 227, 0.3);
+  border-bottom: 1px solid ${(props) => props.theme.colors.linkAccentBorder};
   transition: 0.2s ease;
   padding-bottom: 1px;
 
   &:hover {
-    color: #fff;
-    border-bottom-color: #fff;
+    color: ${(props) => props.theme.colors.cardText};
+    border-bottom-color: ${(props) => props.theme.colors.cardText};
   }
 `;
 

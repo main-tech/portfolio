@@ -27,7 +27,7 @@ const ICIPE = () => {
   return (
     <Layout>
       <Head>
-        <title>ICIPE — Systems and Cloud Solutions Architect | Mandela Mitau</title>
+        <title>ICIPE — Systems and Cloud Solutions Architect | Mandela Muithi</title>
         <meta
           name="description"
           content="Cloud and Kubernetes platform engineering at ICIPE — GitOps with ArgoCD, satellite-data pipelines on Open Data Cube and Argo Workflows, Terraform IaC, and GitHub Actions CI/CD."

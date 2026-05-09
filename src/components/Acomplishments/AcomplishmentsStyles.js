@@ -23,9 +23,10 @@ export const Boxes = styled.div`
 `
 
 export const Box = styled.div`
-  background: #474A57; 
+  background: ${(props) => props.theme.colors.cardBg};
+  border: 1px solid ${(props) => props.theme.colors.cardBorder};
   border-radius: 12px;
-  height: 350px; 
+  height: 350px;
   padding: 24px;
   @media ${props => props.theme.breakpoints.lg} {
    height: 350px;
@@ -52,7 +53,7 @@ export const BoxNum = styled.h5`
   font-size: 36px;
   line-height: 40px;
   letter-spacing: 0.01em;
-  color: #FFFFFF;
+  color: ${(props) => props.theme.colors.cardText};
   margin-bottom: 8px;
 
   @media ${props => props.theme.breakpoints.md} {
@@ -71,7 +72,7 @@ export const BoxText = styled.p`
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.75);
+  color: ${(props) => props.theme.colors.cardTextMuted};
 
   @media ${props => props.theme.breakpoints.md}{
     font-size: 16px;
@@ -110,7 +111,7 @@ export const JoinText = styled.h5`
   font-size: 24px;
   line-height: 40px;
   letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.5);
+  color: ${(props) => props.theme.colors.textSubtle};
 
 @media ${props => props.theme.breakpoints.md}{
   line-height: 32px;

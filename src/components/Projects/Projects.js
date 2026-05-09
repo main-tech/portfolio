@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from 'styled-components';
 
 import {
   BlogCard,
@@ -15,45 +16,51 @@ import {
 import { Section, SectionDivider, SectionText, SectionTitle } from '../../styles/GlobalComponents';
 import { projects } from '../../constants/constants';
 
-const Field = ({ label, children }) => (
-  <div style={{ padding: '0 1.5rem', marginBottom: '0.75rem', textAlign: 'left' }}>
-    <span
+const Field = ({ label, children }) => {
+  const theme = useTheme();
+  return (
+    <div style={{ padding: '0 1.5rem', marginBottom: '0.75rem', textAlign: 'left' }}>
+      <span
+        style={{
+          color: theme.colors.linkAccent,
+          fontWeight: 600,
+          fontSize: '0.95rem',
+          letterSpacing: '0.05em',
+        }}
+      >
+        {label}
+      </span>
+      <div style={{ color: theme.colors.textMuted, fontSize: '0.95rem', lineHeight: '1.4rem', marginTop: 4 }}>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const ComingSoon = () => {
+  const theme = useTheme();
+  return (
+    <div
       style={{
-        color: '#9cc9e3',
-        fontWeight: 600,
-        fontSize: '0.95rem',
-        letterSpacing: '0.05em',
+        width: '100%',
+        padding: '4rem 2rem',
+        textAlign: 'center',
+        borderRadius: 12,
+        border: `1px dashed ${theme.colors.cardBorder}`,
+        background: theme.colors.cardBgSoft,
+        color: theme.colors.cardTextMuted,
+        fontSize: '1.25rem',
+        lineHeight: 1.6,
       }}
     >
-      {label}
-    </span>
-    <div style={{ color: '#e4e6e7', fontSize: '0.95rem', lineHeight: '1.4rem', marginTop: 4 }}>
-      {children}
+      <div style={{ fontSize: '1.6rem', fontWeight: 700, color: theme.colors.cardText, marginBottom: 12 }}>
+        Projects coming soon
+      </div>
+      Selected SRE, DevOps, and platform engineering projects will be published here &mdash; framed by
+      problem, architecture, contribution, and measurable impact.
     </div>
-  </div>
-);
-
-const ComingSoon = () => (
-  <div
-    style={{
-      width: '100%',
-      padding: '4rem 2rem',
-      textAlign: 'center',
-      borderRadius: 12,
-      border: '1px dashed rgba(255, 255, 255, 0.18)',
-      background: 'rgba(71, 74, 87, 0.25)',
-      color: 'rgba(255, 255, 255, 0.75)',
-      fontSize: '1.25rem',
-      lineHeight: 1.6,
-    }}
-  >
-    <div style={{ fontSize: '1.6rem', fontWeight: 700, color: '#fff', marginBottom: 12 }}>
-      Projects coming soon
-    </div>
-    Selected SRE, DevOps, and platform engineering projects will be published here &mdash; framed by
-    problem, architecture, contribution, and measurable impact.
-  </div>
-);
+  );
+};
 
 const Projects = () => (
   <Section nopadding id="projects">

@@ -18,7 +18,8 @@ export const CertGrid = styled.div`
 `;
 
 export const CertCard = styled.div`
-  background: #474a57;
+  background: ${(props) => props.theme.colors.cardBg};
+  border: 1px solid ${(props) => props.theme.colors.cardBorder};
   border-radius: 12px;
   padding: 24px;
   display: flex;
@@ -34,7 +35,7 @@ export const CertName = styled.h4`
   font-weight: 700;
   font-size: 22px;
   line-height: 28px;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.cardText};
 
   @media ${(props) => props.theme.breakpoints.sm} {
     font-size: 18px;
@@ -45,7 +46,7 @@ export const CertName = styled.h4`
 export const CertIssuer = styled.p`
   font-size: 16px;
   line-height: 22px;
-  color: rgba(255, 255, 255, 0.65);
+  color: ${(props) => props.theme.colors.cardTextSubtle};
 `;
 
 export const CertStatus = styled.span`
@@ -69,7 +70,7 @@ export const CertStatus = styled.span`
 export const CertNote = styled.p`
   font-size: 14px;
   line-height: 22px;
-  color: rgba(255, 255, 255, 0.7);
+  color: ${(props) => props.theme.colors.cardTextMuted};
   margin-top: 4px;
 `;
 

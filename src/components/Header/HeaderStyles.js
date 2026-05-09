@@ -1,137 +1,175 @@
-import { IoIosArrowDropdown } from 'react-icons/io';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-
-export const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 2rem;
-  padding: 1rem;
-  padding-top: 2rem;
+export const Container = styled.header`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000; // High z-index to ensure it's above other elements
-  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  background-color: ${(props) => props.theme.colors.headerBg};
+  border-bottom: 1px solid ${(props) => props.theme.colors.headerBorder};
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+`;
+
+export const Inner = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 60px);
-    grid-column-gap: 0.5rem;
-    grid-row-gap: 0.5rem;
+    padding: 1rem 1.4rem;
   }
 `;
 
+export const Brand = styled.div`
+  display: flex;
+  align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+    color: ${(props) => props.theme.colors.bodyText};
+    transition: color 0.25s ease;
+  }
+`;
 
 export const Span = styled.span`
-font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-left: 0.6rem;
 `;
 
-export const Div1 = styled.div`
-  grid-area: 1 / 1 / 2 / 2;
+export const NavList = styled.ul`
   display: flex;
-  flex-direction: row;
-  align-content: center;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    grid-area: 1 / 1 / 2 / 3;
-  }
-`;
-export const Div2 = styled.div`
-  grid-area: 1 / 2 / 2 / 4;
-  display: flex;
-  justify-content: space-around;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    grid-area: 2 / 2 / 3 / 5;
-  }
-`;
-export const Div3 = styled.div`
-  grid-area: 1 / 5 / 2 / 6;
-  display: flex;
-  justify-content: space-around;
   align-items: center;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    align-items: center;
-    grid-area: 1 / 4 / 2 / 6;
+  gap: 2.4rem;
+  margin: 0;
+  padding: 0;
+
+  @media ${(props) => props.theme.breakpoints.md} {
+    display: none;
   }
 `;
 
-// Navigation Links
 export const NavLink = styled.a`
-  font-size: 2rem;
+  font-size: 1.6rem;
   line-height: 32px;
-  color: rgba(255, 255, 255, 0.75);
-  transition: 0.4s ease;
+  color: ${(props) => props.theme.colors.navText};
+  transition: color 0.25s ease;
+
   &:hover {
-    color: #fff;
-    opacity: 1;
+    color: ${(props) => props.theme.colors.navHover};
     cursor: pointer;
   }
-  @media ${(props) => props.theme.breakpoints.sm} {
-    padding: 0.5rem;
-  }
 `;
 
-/// DropDown Contact
-export const ContactDropDown = styled.button`
-  border: none;
+export const Actions = styled.div`
   display: flex;
-  position: relative;
-  background: none;
-  font-size: 1.7rem;
-
-  line-height: 32px;
-  color: rgba(255, 255, 255, 0.75);
-  cursor: pointer;
-  transition: 0.3s ease;
-
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    color: #fff;
-  }
-
-  @media ${(props) => props.theme.breakpoints.sm} {
-    padding: 0.4rem 0;
-  }
-  @media ${(props) => props.theme.breakpoints.md} {
-    padding: 0;
-  }
+  align-items: center;
+  gap: 0.4rem;
 `;
-
-export const NavProductsIcon = styled(IoIosArrowDropdown)`
-  margin-left: 8px;
-  display: flex;
-  align-self: center;
-  transition: 0.3s ease;
-  opacity: ${({ isOpen }) => (isOpen ? '1' : '.75')};
-  transform: ${({ isOpen }) => (isOpen ? 'scaleY(-1)' : 'scaleY(1)')};
-
-  &:hover {
-    opacity: 1;
-  }
-
-  @media ${(props) => props.theme.breakpoints.sm} {
-    margin: 2px 0 0 2px;
-    width: 15px;
-  }
-`;
-
-
-// Social Icons 
 
 export const SocialIcons = styled.a`
-transition: 0.3s ease;
-color: white;
-border-radius: 50px;
+  transition: 0.3s ease;
+  color: ${(props) => props.theme.colors.bodyText};
+  border-radius: 50px;
   padding: 8px;
-&:hover {
-    background-color: #212d45;
-    transform: scale(1.2);
+  display: inline-flex;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.iconHoverBg};
+    transform: scale(1.1);
     cursor: pointer;
-    
   }
-`
+
+  @media ${(props) => props.theme.breakpoints.sm} {
+    padding: 6px;
+  }
+`;
+
+const iconButton = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  color: ${(props) => props.theme.colors.bodyText};
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.iconHoverBg};
+    border-color: ${(props) => props.theme.colors.headerBorder};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${(props) => props.theme.colors.navHover};
+    outline-offset: 2px;
+  }
+`;
+
+export const ThemeButton = styled.button`
+  ${iconButton}
+`;
+
+export const MenuButton = styled.button`
+  ${iconButton}
+  display: none;
+
+  @media ${(props) => props.theme.breakpoints.md} {
+    display: inline-flex;
+  }
+`;
+
+export const MobileNavWrapper = styled.div`
+  display: none;
+  overflow: hidden;
+  max-height: ${({ open }) => (open ? '320px' : '0')};
+  opacity: ${({ open }) => (open ? '1' : '0')};
+  transition: max-height 0.3s ease, opacity 0.25s ease;
+  border-top: ${({ open, theme }) => (open ? `1px solid ${theme.colors.headerBorder}` : '0')};
+
+  @media ${(props) => props.theme.breakpoints.md} {
+    display: block;
+  }
+`;
+
+export const MobileNavList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem 2rem 1.6rem;
+  margin: 0;
+  gap: 0.4rem;
+
+  li {
+    width: 100%;
+  }
+
+  a {
+    display: block;
+    padding: 1rem 0.4rem;
+    font-size: 1.7rem;
+    color: ${(props) => props.theme.colors.navText};
+    border-radius: 8px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  a:hover {
+    color: ${(props) => props.theme.colors.navHover};
+    background-color: ${(props) => props.theme.colors.iconHoverBg};
+  }
+
+  @media ${(props) => props.theme.breakpoints.sm} {
+    padding: 0.6rem 1.4rem 1.2rem;
+  }
+`;
