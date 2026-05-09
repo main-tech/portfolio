@@ -19,12 +19,9 @@ import {
 } from '../../components/ExperienceDetail/ExperienceDetailStyles';
 import { experience } from '../../constants/constants';
 
-export async function getServerSideProps() {
-  const job = experience.find((e) => e.slug === 'icipe') || null;
-  return { props: { job } };
-}
+const job = experience.find((e) => e.slug === 'icipe');
 
-const ICIPE = ({ job }) => {
+const ICIPE = () => {
   if (!job) return null;
 
   return (
