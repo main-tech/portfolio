@@ -12,22 +12,22 @@ const Header = () => (
 
       <Link href="/" style={{ display: "flex", alignItems: "center", color: 'white', marginBottom: 20 }}>
         <DiCssdeck size="3rem" />
-        <Span>Portfolio</Span>
+        <Span>Mandela Mitau</Span>
       </Link>
 
     </Div1>
     <Div2>
-      <li >
-        <NavLink href="#projects">Projects</NavLink>
-
-      </li>
-      <li >
-        <NavLink href="#tech">Technologies</NavLink>
-
-      </li>
-      <li >
+      <li>
         <NavLink href="#about">About</NavLink>
-
+      </li>
+      <li>
+        <NavLink href="#experience">Experience</NavLink>
+      </li>
+      <li>
+        <NavLink href="#tech">Skills</NavLink>
+      </li>
+      <li>
+        <NavLink href="#projects">Projects</NavLink>
       </li>
     </Div2>
     <Div3>

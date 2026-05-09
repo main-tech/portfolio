@@ -1,27 +1,20 @@
 import React from 'react';
 
 import { Section, SectionText, SectionTitle } from '../../styles/GlobalComponents';
-import Button from '../../styles/GlobalComponents/Button';
 import { LeftSection } from './HeroStyles';
 
-
-
-
-
-const Hero = (props) => (
-  <Section>
+const Hero = () => (
+  <Section row nopadding>
     <LeftSection>
       <SectionTitle main center>
-        Welcome To <br />
-        Mandela's Portfolio
+        Mandela Mitau <br />
+        Site Reliability & DevOps Engineer
       </SectionTitle>
-      <SectionText>Expert in Cloud, Development & DevOps
+      <SectionText>
+        I design, automate, and operate the infrastructure that production systems depend on
+        &mdash; Kubernetes clusters, CI/CD pipelines, and cloud environments built for reliability
+        at scale. Software engineering foundation, infrastructure-first focus.
       </SectionText>
-
-      {/*       <a href="mandelacv.pdf" download="mandelacv" target='_blank'> */}
-      {/*       <Button >Download portfolio</Button> */}
-      {/* </a> */}
-
     </LeftSection>
   </Section>
 );

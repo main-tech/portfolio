@@ -1,159 +1,134 @@
 import React from 'react';
-import { DiFirebase, DiJava, DiProlog, DiReact } from 'react-icons/di';
-import { Section, SectionDivider, SectionText, SectionTitle } from '../../styles/GlobalComponents';
-import { List, ListContainer, ListItem, ListParagraph, ListTitle } from './TechnologiesStyles';
-import { RiVuejsFill } from "react-icons/ri";
-import { SiCapacitor } from "react-icons/si";
-import { FaAws } from "react-icons/fa";
-import { DiDocker } from 'react-icons/di';
-import { DiNginx } from 'react-icons/di';
-import { SiTraefikproxy } from 'react-icons/si';
-import { SiMicrosoftazure } from 'react-icons/si';
-import { SiKubernetes } from 'react-icons/si';
-import { TbBrandNextjs } from "react-icons/tb";
+import { FaAws, FaSatellite, FaLayerGroup } from 'react-icons/fa';
+import {
+  SiKubernetes,
+  SiTerraform,
+  SiDocker,
+  SiNginx,
+  SiTraefikproxy,
+  SiGithubactions,
+  SiArgo,
+  SiFlux,
+  SiHelm,
+  SiPrometheus,
+  SiGrafana,
+  SiPython,
+  SiGnubash,
+  SiTypescript,
+  SiPostgresql,
+  SiLinux,
+  SiNextdotjs,
+  SiGdal,
+} from 'react-icons/si';
+
+import {
+  Section,
+  SectionDivider,
+  SectionText,
+  SectionTitle,
+} from '../../styles/GlobalComponents';
+import {
+  List,
+  ListContainer,
+  ListItem,
+  ListParagraph,
+  ListTitle,
+} from './TechnologiesStyles';
+
+const skillGroups = [
+  {
+    category: 'Cloud & Infrastructure',
+    description:
+      'Production cluster operation, multi-cloud IaC, and the systems that keep workloads running.',
+    items: [
+      { icon: <SiKubernetes size="2.5rem" />, name: 'Kubernetes', note: 'Production clusters, workloads, debugging' },
+      { icon: <SiTerraform size="2.5rem" />, name: 'Terraform', note: 'Multi-cloud IaC, modules, state management' },
+      { icon: <FaAws size="2.5rem" />, name: 'AWS', note: 'EKS, EC2, RDS, S3, IAM, networking' },
+      { icon: <SiLinux size="2.5rem" />, name: 'Linux', note: 'Sysadmin, performance tuning, troubleshooting' },
+    ],
+  },
+  {
+    category: 'DevOps & CI/CD',
+    description:
+      'Pipelines and delivery infrastructure for shipping safely, frequently, and reversibly.',
+    items: [
+      { icon: <SiGithubactions size="2.5rem" />, name: 'GitHub Actions', note: 'Reusable workflows, deployment gates' },
+      { icon: <SiArgo size="2.5rem" />, name: 'ArgoCD', note: 'Primary GitOps controller — App-of-Apps pattern' },
+      { icon: <SiFlux size="2.5rem" />, name: 'Flux', note: 'GitOps reconciliation on additional projects' },
+      { icon: <SiArgo size="2.5rem" />, name: 'Argo Workflows', note: 'Job orchestration for data pipelines on K8s' },
+      { icon: <SiDocker size="2.5rem" />, name: 'Docker', note: 'Hardened images, multi-stage builds' },
+      { icon: <SiHelm size="2.5rem" />, name: 'Helm', note: 'Templated K8s releases and rollouts' },
+      { icon: <SiNginx size="2.5rem" />, name: 'Nginx', note: 'Ingress, reverse proxy, TLS termination' },
+      { icon: <SiTraefikproxy size="2.5rem" />, name: 'Traefik', note: 'Dynamic routing, service discovery' },
+    ],
+  },
+  {
+    category: 'SRE & Observability',
+    description:
+      'The signals, runbooks, and post-incident learning loops that keep production honest.',
+    items: [
+      { icon: <SiPrometheus size="2.5rem" />, name: 'Prometheus', note: 'Metrics, SLOs, alerting' },
+      { icon: <SiGrafana size="2.5rem" />, name: 'Grafana', note: 'Dashboards, visual triage' },
+    ],
+  },
+  {
+    category: 'Programming & Automation',
+    description:
+      'Languages and tooling I use to automate operations and ship product features when needed.',
+    items: [
+      { icon: <SiPython size="2.5rem" />, name: 'Python', note: 'Automation, internal services, glue' },
+      { icon: <SiGnubash size="2.5rem" />, name: 'Bash', note: 'Ops scripting, runbooks, CI shims' },
+      { icon: <SiTypescript size="2.5rem" />, name: 'TypeScript', note: 'Internal tools and product features' },
+      { icon: <SiNextdotjs size="2.5rem" />, name: 'Next.js', note: 'Dashboards and product surfaces' },
+    ],
+  },
+  {
+    category: 'Geospatial & Earth Observation',
+    description:
+      'Satellite imagery pipelines &mdash; COGs on S3, indexed in place with ODC, processed on Kubernetes, served through OGC web services.',
+    items: [
+      { icon: <FaSatellite size="2.5rem" />, name: 'Open Data Cube (ODC)', note: 'In-place indexing of COGs on S3 with STAC metadata' },
+      { icon: <FaLayerGroup size="2.5rem" />, name: 'Cloud Optimized GeoTIFFs', note: 'Streamed satellite imagery on S3, no bulk transfer' },
+      { icon: <FaLayerGroup size="2.5rem" />, name: 'GeoServer', note: 'OGC web services (WMS/WFS/WCS) for processed layers' },
+      { icon: <SiGdal size="2.5rem" />, name: 'GDAL / Rasterio', note: 'Geospatial format conversion and raster processing' },
+    ],
+  },
+  {
+    category: 'Data & Systems Engineering',
+    description:
+      'Stateful systems &mdash; backed up, replicated, and recoverable.',
+    items: [
+      { icon: <SiPostgresql size="2.5rem" />, name: 'PostgreSQL / PostGIS', note: 'Relational and geospatial workloads' },
+    ],
+  },
+];
+
 const Technologies = () => (
   <Section id="tech">
     <SectionDivider />
-    <SectionTitle>Technologies</SectionTitle>
+    <SectionTitle>Core Skills</SectionTitle>
     <SectionText>
-      Core Tools & Technologies: My Go-To Resources for Project Excellence
+      Grouped by where the work happens &mdash; cloud and cluster, pipeline and delivery, signal and
+      response, automation and product, data and state.
     </SectionText>
-    <List>
-      {/* AWS */}
-      <ListContainer>
-        <FaAws size="3rem" />
-        <ListTitle>AWS</ListTitle>
-        <ListParagraph>
-          <p>Backbone of Cloud Innovation</p>
-        </ListParagraph>
-      </ListContainer>
 
-
-      {/* Azure */}
-      <ListContainer>
-        <SiMicrosoftazure size="3rem" />
-        <ListTitle>Azure</ListTitle>
-        <ListParagraph>
-          <p>Powering Scalable, Secure Cloud Solutions</p>
-        </ListParagraph>
-      </ListContainer>
-
-
-      {/* Next.js */}
-      <ListContainer>
-        <TbBrandNextjs size="3rem" />
-        <ListTitle>Next.js</ListTitle>
-        <ListParagraph>
-          <p>Advancing Web Development with Next.js</p>
-        </ListParagraph>
-      </ListContainer>
-      {/* Docker */}
-      <ListContainer>
-        <DiDocker size="3rem" />
-        <ListTitle>Docker</ListTitle>
-        <ListParagraph>
-          <p>Streamlining Development with Containerization</p>
-        </ListParagraph>
-      </ListContainer>
-
-      <ListContainer>
-        <SiKubernetes size="3rem" />
-        <ListTitle>Kubernetes</ListTitle>
-        <ListParagraph>
-          <p>Orchestrating Container Efficiency and Reliability</p>
-        </ListParagraph>
-      </ListContainer>
-      {/* Nginx */}
-      <ListContainer>
-        <DiNginx size="3rem" />
-        <ListTitle>Nginx</ListTitle>
-        <ListParagraph>
-          <p>Accelerating Web Performance and Stability</p>
-        </ListParagraph>
-      </ListContainer>
-
-
-      {/* Traefik */}
-      <ListContainer>
-        <SiTraefikproxy size="3rem" />
-        <ListTitle>Traefik</ListTitle>
-        <ListParagraph>
-          <p>Simplifying Network Management with Intelligent Routing</p>
-        </ListParagraph>
-      </ListContainer>
-
-      <ListItem>
-        <ListContainer>
-          <DiProlog size="3rem" />
-          <ListTitle>Prolog</ListTitle>
-          <ListParagraph>
-            <p>Problem Solving</p>
-          </ListParagraph>
-        </ListContainer>
-      </ListItem>
-
-      <ListItem>
-        <ListContainer>
-          <DiJava size="3rem" />
-          <ListTitle>Java</ListTitle>
-          <ListParagraph>
-          </ListParagraph>
-          Standard Edition
-        </ListContainer>
-      </ListItem>
-
-      <ListItem>
-        <ListContainer>
-          <DiReact size="3rem" />
-          <ListTitle>React</ListTitle>
-          <ListParagraph>
-          </ListParagraph>
-          <p>Client side</p>
-        </ListContainer>
-      </ListItem>
-
-
-      <ListItem>
-        <ListContainer>
-          <RiVuejsFill size="3rem" />
-          <ListTitle>Vue</ListTitle>
-          <ListParagraph>
-            <p>Client side</p>
-          </ListParagraph>
-        </ListContainer>
-      </ListItem>
-
-
-
-      <ListItem>
-        <ListContainer>
-          <SiCapacitor size="3rem" />
-          <ListTitle>Capacitor</ListTitle>
-          <ListParagraph>
-            <p>Cross platform native mobile applications</p>
-          </ListParagraph>
-        </ListContainer>
-      </ListItem>
-
-
-
-
-
-
-      <ListItem>
-        <ListContainer>
-          <DiFirebase size="3rem" />
-          <ListTitle>Back-End</ListTitle>
-          <ListParagraph>
-            Experience with <br />
-            NOde.js and Data bases
-          </ListParagraph>
-        </ListContainer>
-      </ListItem>
-
-
-
-    </List>
+    {skillGroups.map((group) => (
+      <div key={group.category} style={{ marginBottom: '3rem' }}>
+        <ListTitle style={{ marginBottom: 8 }}>{group.category}</ListTitle>
+        <ListParagraph style={{ marginBottom: 24 }}>{group.description}</ListParagraph>
+        <List>
+          {group.items.map((item) => (
+            <ListItem key={item.name}>
+              <ListContainer>
+                {item.icon}
+                <ListTitle>{item.name}</ListTitle>
+                <ListParagraph>{item.note}</ListParagraph>
+              </ListContainer>
+            </ListItem>
+          ))}
+        </List>
+      </div>
+    ))}
   </Section>
 );
 
