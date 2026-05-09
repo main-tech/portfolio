@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start"
   },
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "dependencies": {
     "eslint-config-next": "^16.2.6",
     "next": "^16.2.6",
