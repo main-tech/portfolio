@@ -29,10 +29,17 @@ export default class MyDocument extends Document {
   }
   render() {
     return (
-      <Html lang='en-GB'>
+      <Html lang='en'>
         <Head>
           <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
           <link rel="alternate icon" href="/favicon.ico"/>
+          <link rel="apple-touch-icon" href="/profile-400.png"/>
+          <link rel="manifest" href="/site.webmanifest"/>
+          <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f7fb"/>
+          <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1624"/>
+          <meta name="author" content="Mandela Muithi"/>
+          <link rel="preconnect" href="https://fonts.googleapis.com"/>
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
           <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
         </Head>
         <body>

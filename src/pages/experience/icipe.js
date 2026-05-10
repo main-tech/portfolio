@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Head from 'next/head';
 
+import Seo, { SITE_NAME, SITE_URL } from '../../components/Seo/Seo';
 import { Layout } from '../../layout/Layout';
 import {
   BackLink,
@@ -21,18 +21,44 @@ import { experience } from '../../constants/constants';
 
 const job = experience.find((e) => e.slug === 'icipe');
 
+const description =
+  'Cloud and Kubernetes platform engineering at ICIPE — GitOps with ArgoCD, satellite-data pipelines on Open Data Cube and Argo Workflows, Terraform IaC, and GitHub Actions CI/CD.';
+
+const jobJsonLd = job && {
+  '@context': 'https://schema.org',
+  '@type': 'WorkExperience',
+  name: `${job.role} — ${job.company}`,
+  description,
+  url: `${SITE_URL}/experience/icipe`,
+  worksFor: {
+    '@type': 'Organization',
+    name: job.company,
+  },
+  jobLocation: {
+    '@type': 'Place',
+    address: job.location,
+  },
+  startDate: job.start,
+  endDate: job.end,
+  employee: {
+    '@type': 'Person',
+    name: SITE_NAME,
+    url: SITE_URL,
+  },
+};
+
 const ICIPE = () => {
   if (!job) return null;
 
   return (
     <Layout>
-      <Head>
-        <title>ICIPE — Systems and Cloud Solutions Architect | Mandela Muithi</title>
-        <meta
-          name="description"
-          content="Cloud and Kubernetes platform engineering at ICIPE — GitOps with ArgoCD, satellite-data pipelines on Open Data Cube and Argo Workflows, Terraform IaC, and GitHub Actions CI/CD."
-        />
-      </Head>
+      <Seo
+        title={`ICIPE — ${job.role}`}
+        description={description}
+        path="/experience/icipe"
+        type="article"
+        jsonLd={jobJsonLd}
+      />
 
       <Wrapper>
         <Link href="/#experience" passHref legacyBehavior>

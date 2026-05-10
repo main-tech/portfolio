@@ -1,0 +1,22 @@
+{
+  "name": "Mandela Muithi — Site Reliability & DevOps Engineer",
+  "short_name": "Mandela Muithi",
+  "description": "Site Reliability and DevOps Engineer — Kubernetes, AWS, Terraform, GitOps, CI/CD.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F1624",
+  "theme_color": "#0F1624",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/profile-400.png",
+      "type": "image/png",
+      "sizes": "400x400",
+      "purpose": "any"
+    }
+  ]
+}
