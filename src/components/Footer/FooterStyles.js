@@ -142,6 +142,80 @@ export const LinkColumn = styled.div`
 	max-width: 220px;
 	width: 100%;
 `
+export const SliStrip = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 12px;
+	padding: 16px 0 4px;
+	margin-top: 20px;
+	border-top: 1px solid ${(props) => props.theme.colors.divider};
+	font-size: 13px;
+	color: ${(props) => props.theme.colors.textMuted};
+
+	@media ${(props) => props.theme.breakpoints.sm} {
+		font-size: 11px;
+		gap: 6px 8px;
+	}
+`;
+
+export const SliPill = styled.span`
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px 10px;
+	border-radius: 999px;
+	background: ${(props) => props.theme.colors.iconHoverBg};
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+`;
+
+export const StatusDot = styled.span`
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: ${(props) =>
+		props.status === 'up'
+			? '#22c55e'
+			: props.status === 'degraded' || props.status === 'maintenance'
+				? '#f59e0b'
+				: props.status === 'down'
+					? '#ef4444'
+					: 'rgba(180, 180, 180, 0.5)'};
+
+	${(props) =>
+		props.status === 'up' &&
+		`animation: sliPulse 2.4s ease-in-out infinite;
+		@keyframes sliPulse {
+			0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
+			50% { box-shadow: 0 0 0 5px rgba(34, 197, 94, 0); }
+		}`}
+`;
+
+export const SliDeploy = styled.div`
+	font-size: 12px;
+	color: ${(props) => props.theme.colors.textMuted};
+	opacity: 0.9;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	flex-wrap: wrap;
+
+	code {
+		font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+		background: ${(props) => props.theme.colors.iconHoverBg};
+		padding: 1px 6px;
+		border-radius: 4px;
+		font-size: 11px;
+	}
+
+	@media ${(props) => props.theme.breakpoints.sm} {
+		font-size: 10px;
+		code { font-size: 9px; }
+	}
+`;
+
 export const LinkTitle = styled.h4`
 	font-style: normal;
 	font-weight: 600;
