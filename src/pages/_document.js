@@ -32,7 +32,6 @@ export default class MyDocument extends Document {
       <Html lang='en'>
         <Head>
           <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-          <link rel="alternate icon" href="/favicon.ico"/>
           <link rel="apple-touch-icon" href="/profile-400.png"/>
           <link rel="manifest" href="/site.webmanifest"/>
           <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f7fb"/>
