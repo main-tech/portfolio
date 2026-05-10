@@ -26,6 +26,7 @@ const NAV_ITEMS = [
   { href: '#experience', label: 'Experience' },
   { href: '#tech', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
+  { href: 'https://blog.mandela.dev', label: 'Blog', external: true },
 ];
 
 const ThemeIcon = ({ mode }) => {
@@ -64,7 +65,12 @@ const Header = () => {
         <NavList>
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
-              <NavLink href={item.href}>{item.label}</NavLink>
+              <NavLink
+                href={item.href}
+                {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
+              >
+                {item.label}
+              </NavLink>
             </li>
           ))}
         </NavList>
@@ -110,7 +116,11 @@ const Header = () => {
         <MobileNavList>
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
-              <a href={item.href} onClick={closeMenu}>
+              <a
+                href={item.href}
+                onClick={closeMenu}
+                {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
+              >
                 {item.label}
               </a>
             </li>
